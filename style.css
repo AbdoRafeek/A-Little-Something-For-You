@@ -1354,3 +1354,13 @@ em {
     }
 
 }
+
+@media (max-width: 700px) {
+
+    .date-form {
+        width: 100%;
+        margin: auto;
+    }
+
+}
+
