@@ -339,6 +339,7 @@ function initAfterPuzzle() {
 
 }
 
+let finalMusicAudio = null;
 
 function initFinalMusic() {
 
@@ -349,9 +350,10 @@ function initFinalMusic() {
 
     if (!button) return;
 
-    const audio = new Audio(CONFIG.finalMusic);
+     finalMusicAudio = new Audio(CONFIG.finalMusic);
 
-    audio.preload = "auto";
+      const audio = finalMusicAudio;
+      audio.preload = "auto";
 
     if (text) {
         text.textContent =
@@ -1782,6 +1784,9 @@ $("#dateForm").addEventListener(
 /* =========================================
    DATE INPUT FORMAT
 ========================================= */
+/* =========================================
+   DATE INPUT FORMAT
+========================================= */
 
 $("#dateInput").addEventListener(
     "input",
@@ -1803,6 +1808,7 @@ $("#dateInput").addEventListener(
 
         }
 
+
         else if (value.length > 2) {
 
             value =
@@ -1816,6 +1822,56 @@ $("#dateInput").addEventListener(
 
         event.target.value =
             value;
+
+
+        /* =========================================
+           AUTO PLAY FINAL SONG
+        ========================================= */
+
+        const entered =
+            normalizeDate(value);
+
+        const correct =
+            normalizeDate(CONFIG.secretDate);
+
+
+        if (
+            entered === correct &&
+            value.length === 10 &&
+            finalMusicAudio
+        ) {
+
+            finalMusicAudio
+                .play()
+                .then(() => {
+
+                    const icon =
+                        $("#finalMusicIcon");
+
+                    const label =
+                        $("#finalMusicLabel");
+
+
+                    if (icon)
+                        icon.textContent =
+                            "Ⅱ";
+
+
+                    if (label)
+                        label.textContent =
+                            "Pause the song";
+
+                })
+                .catch((error) => {
+
+                    console.error(
+                        "Auto music playback failed:",
+                        error
+                    );
+
+                });
+
+        }
 
     }
 );
