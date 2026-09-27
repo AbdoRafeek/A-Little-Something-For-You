@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#08070a"
+    >
+
+    <title>A Little Something For You</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- Floating particles -->
+
+    <div id="particles"></div>
+
+
+
+    <!-- =========================
+         LOGIN SCREEN
+    ========================== -->
+
+    <main id="loginScreen" class="login-screen">
+
+
+        <div class="login-card">
+
+
+            <p class="eyebrow">
+
+                A5eran el gam3a shaftek
+
+            </p>
+
+
+
+            <h1>
+
+                Welcome
+
+            </h1>
+
+
+
+            <p class="login-subtitle">
+
+                There is something waiting for you.
+
+            </p>
+
+
+
+            <form
+                id="loginForm"
+                autocomplete="off"
+            >
+
+
+                <label>
+
+                    <span>Username</span>
+
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="The nickname you don’t like?"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    <span>Password</span>
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="My real date of birth"
+                        required
+                    >
+
+                </label>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+
+                    <span>Enter</span>
+
+                    <span>→</span>
+
+                </button>
+
+
+
+                <p
+                    id="loginError"
+                    class="error-message"
+                ></p>
+
+
+            </form>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         MAIN STORY
+    ========================== -->
+
+    <main
+        id="story"
+        class="story hidden"
+    >
+
+
+
+        <!-- =========================
+             INTRO
+        ========================== -->
+
+        <section class="intro story-section">
+
+
+            <div class="intro-content">
+
+
+                <p class="eyebrow reveal">
+
+                    Hey...
+
+                </p>
+
+
+
+                <h1 class="reveal delay-1">
+
+                    I made something
+
+                    <br>
+
+                    <em>just for you.</em>
+
+                </h1>
+
+
+
+                <p class="intro-copy reveal delay-2">
+
+                    Take your time. There is no rush.
+
+                </p>
+
+
+
+                <div class="scroll-hint reveal delay-3">
+
+                    <span>
+
+                        Scroll down
+
+                    </span>
+
+
+
+                    <div class="arrow">
+
+                        ↓
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             PHOTO STORY
+        ========================== -->
+
+        <section
+            id="photoStory"
+            class="photo-story"
+        >
+
+        </section>
+
+
+
+        <!-- =========================
+             VIDEO
+        ========================== -->
+
+        <section class="video-section story-section">
+
+
+            <div class="section-intro">
+
+
+                <p class="eyebrow">
+
+                    A little more
+
+                </p>
+
+
+
+                <h2>
+
+                    Some things are better moving.
+
+                </h2>
+
+
+            </div>
+
+
+
+            <div class="video-frame">
+
+
+                <video
+                    id="storyVideo"
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src=""
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support video.
+
+                </video>
+
+
+            </div>
+
+
+
+            <p
+                id="videoCaption"
+                class="section-caption"
+            ></p>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             PUZZLE
+        ========================== -->
+
+        <section class="puzzle-section story-section">
+
+
+            <div class="section-intro">
+
+
+                <p class="eyebrow">
+
+                    Your turn
+
+                </p>
+
+
+
+                <h2>
+
+                    Gonna make you work for it a little  Come on, solve it if you wanna see your surprise.
+
+                </h2>
+
+
+
+                <p class="section-caption">
+
+                    Drag each piece to its matching place.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="puzzle-wrap">
+
+
+                <!-- Puzzle final board -->
+
+                <div
+                    id="puzzleBoard"
+                    class="puzzle-board"
+                    aria-label="Puzzle board"
+                ></div>
+
+
+
+                <!-- Mixed pieces -->
+
+                <div
+                    id="puzzlePieces"
+                    class="puzzle-pieces"
+                ></div>
+
+
+            </div>
+
+
+
+            <div class="puzzle-status">
+
+
+                <span id="puzzleCount">
+
+                    0 / 9
+
+                </span>
+
+
+            </div>
+
+
+
+            <!-- Puzzle completed -->
+
+            <div
+                id="puzzleComplete"
+                class="puzzle-complete hidden"
+            >
+
+
+
+                <div class="complete-icon">
+
+                    ✦
+
+                </div>
+
+
+
+                <h3>
+
+                    You found it.
+
+                </h3>
+
+
+
+                <p id="puzzleMessage"></p>
+
+
+
+                <!-- =========================
+                     AFTER PUZZLE
+                ========================== -->
+
+                <div class="after-puzzle">
+
+
+
+                    <!-- Photo -->
+
+                    <div class="after-photo">
+
+
+                        <div class="after-photo-frame">
+
+
+                            <img
+                                id="afterPhoto"
+                                src=""
+                                alt="A special memory"
+                            >
+
+
+                        </div>
+
+
+
+                        <p id="afterText"></p>
+
+
+                    </div>
+
+
+
+                    <!-- Music -->
+
+                    <div class="music-box">
+
+
+                        <button
+                            id="musicButton"
+                            class="music-button"
+                            type="button"
+                        >
+
+
+                            <span id="musicIcon">
+
+                                ▶
+
+                            </span>
+
+
+                            <span id="musicLabel">
+
+                                Play the song
+
+                            </span>
+
+
+                        </button>
+
+
+
+                        <p id="musicText"></p>
+
+
+                    </div>
+
+
+
+                    <!-- Continue -->
+
+                    <button
+                        id="continueBtn"
+                        class="text-btn"
+                    >
+
+                        Continue ↓
+
+                    </button>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             SECRET DATE
+        ========================== -->
+
+        <section class="date-section story-section">
+
+
+            <div class="date-card">
+
+
+                <p class="eyebrow">
+
+                    One last thing...
+
+                </p>
+
+
+
+                <h2>
+
+                    Do you remember
+
+                    <br>
+
+                    <em>this date?</em>
+
+                </h2>
+
+
+
+                <p
+                    id="dateHint"
+                    class="date-hint"
+                ></p>
+
+
+
+                <form
+                    id="dateForm"
+                    class="date-form"
+                    autocomplete="off"
+                >
+
+
+                    <input
+                        id="dateInput"
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="The day my heart finally found the words: I love you."
+                        aria-label="Secret date"
+                        required
+                    >
+
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+
+                        <span>
+
+                            Unlock
+
+                        </span>
+
+                        <span>
+
+                            ↗
+
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <p
+                    id="dateError"
+                    class="error-message"
+                ></p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             UNLOCKED PHOTO
+        ========================== -->
+
+        <section
+            id="unlocked"
+            class="unlocked-section story-section hidden"
+        >
+
+
+            <div class="unlocked-content">
+
+
+                <div class="final-photo-wrap">
+
+
+                    <img
+                        id="finalPhoto"
+                        src=""
+                        alt="A special memory"
+                    >
+
+
+                </div>
+
+
+
+                <p
+                    id="finalDate"
+                    class="eyebrow"
+                ></p>
+
+
+
+                <!-- =========================
+                     FINAL MUSIC
+                ========================== -->
+
+                <div class="music-box final-music-box">
+
+
+                    <button
+                        id="finalMusicButton"
+                        class="music-button"
+                        type="button"
+                    >
+
+
+                        <span id="finalMusicIcon">
+
+                            ▶
+
+                        </span>
+
+
+                        <span id="finalMusicLabel">
+
+                            Play the song
+
+                        </span>
+
+
+                    </button>
+
+
+
+                    <p id="finalMusicText"></p>
+
+
+                </div>
+
+
+
+                <p
+                    id="finalText"
+                    class="final-story-text"
+                ></p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             FINAL
+        ========================== -->
+
+        <section class="final-section story-section">
+
+
+            <div class="final-content">
+
+
+                <div class="final-heart">
+
+                    ♡
+
+                </div>
+
+
+
+                <p class="eyebrow">
+
+                    And that's it...
+
+                </p>
+
+
+
+                <h2 id="finalTitle">
+
+                    No special occasion.
+
+                </h2>
+
+
+
+                <p
+                    id="finalMessage"
+                    class="final-message"
+                ></p>
+
+
+
+                <div class="final-line"></div>
+
+
+
+                <p class="made-by">
+
+                    Made with love
+
+                </p>
+
+
+
+                <strong id="finalName"></strong>
+
+
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- Configuration -->
+
+    <script src="config.js"></script>
+
+
+
+    <!-- Main JavaScript -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
