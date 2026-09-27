@@ -194,7 +194,7 @@ function initVideo() {
 
 
     $("#videoCaption").textContent =
-        CONFIG.videoCaption;
+        CONFIG.text;
 
 }
 
