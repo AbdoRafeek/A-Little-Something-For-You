@@ -1021,7 +1021,7 @@ em {
 }
 
 .date-form {
-    width: min(430px, 100%);
+    width: min(500px, 100%);
 
     margin: auto;
 }
